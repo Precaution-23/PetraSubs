@@ -1,0 +1,12 @@
+{
+    "name": "test",
+    "version": "1.0.0",
+    "description": "",
+    "main": "backend/dist/app.js",
+    "scripts": {
+      "start": "node server/dist/app.js",
+      "install": "cd backend && yarn install && cd ../frontend && yarn install",
+      "build": "cd frontend && yarn build && cd ../backend && yarn run build"
+    },
+    "keywords": []
+  }
