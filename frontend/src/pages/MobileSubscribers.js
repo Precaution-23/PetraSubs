@@ -12,6 +12,7 @@ function MobileSubscribers() {
   const [searchValue, setSearchValue] = useState("");
   const [filterValue, setfilterValue] = useState("");
   const [loading, setLoading] = useState(false)
+  const [searchResults, setsearchResults] = useState("")
 
   const [editMode, seteditMode] = useState(false)
 
@@ -47,16 +48,26 @@ function MobileSubscribers() {
   // logic to search or sort through phone numbers
   const filterPhone = () => {
     const msisdn = searchValue;
-    const service_type = filterValue!=='' ? filterValue : 'Prepaid';
+    const service_type = filterValue!=='' ? filterValue : 'All';
 
-    if(msisdn === ''){
+    // filter numbers either prepaid or postpaid
+    if(msisdn === '' && service_type !== "All" ){
         const filteredData = subOriginalData.filter(item => item.service_type === service_type)
         setgetSubs(filteredData)
         return
     }
 
+    // filter all data available
+    if(msisdn === '' && service_type === "All" ){
+      const filteredData = subOriginalData
+      setgetSubs(filteredData)
+      return
+  }
+
+    // filter data with both number and service type values
     const filteredData = subOriginalData.filter(item => item.service_type == service_type && item.msisdn == msisdn.trim())
     setgetSubs(filteredData)
+    setsearchResults(filteredData)
 
   };
 
@@ -74,7 +85,7 @@ useEffect(() => {
           <div>
             <input
               value={searchValue}
-              placeholder="Search phone numbers"
+              placeholder="Search phone number"
               onChange={(e) => setSearchValue(e.target.value)}
               className="w-full h-10 rounded-lg border-2 px-2 focus:outline-gray-400"
             />
@@ -86,6 +97,7 @@ useEffect(() => {
                 setfilterValue(e.target.value);
               }}
             >
+              <option value="All">All</option>
               {mobileServiceType.map((serviceType, index) => {
                 return (
                   <option value={serviceType.name} key={index}>
@@ -106,12 +118,12 @@ useEffect(() => {
         </div>
 
         <div className="flex md:justify-end justify-center mt-10 mb-10">
-          <button className="bg-blue-700 md:w-40 w-full rounded-lg h-10 text-white" onClick={openAddForm}>
+          <button className="bg-blue-700 md:w-40 w-full ipad-pro:w-[32%] ipad:w-[32%] rounded-lg h-10 text-white" onClick={openAddForm}>
             Add Subscriber
           </button>
         </div>
 
-        <ListOfMobileSubs getSubs={getSubs} loading={loading}/>
+        <ListOfMobileSubs getSubs={getSubs} loading={loading} searchResults={searchResults}/>
       </div>
 
       <Modal

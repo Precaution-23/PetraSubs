@@ -9,6 +9,8 @@ function AddEditMobileForm({ editMode, editsubs }) {
   const [customer_id_user, setcustomer_id_user] = useState(editsubs?.customer_id_user === "" ? "" : editsubs?.customer_id_user);
   const [service_type, setservice_type] = useState(editsubs?.service_type === undefined ? "Prepaid" : editsubs?.service_type);
 
+  // regex for phone number validation
+  const phoneValidation = /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/im
   // logic to add/edit mobile subscribers
   const addEditForm = async () => {
     if (editMode) {
@@ -29,6 +31,8 @@ function AddEditMobileForm({ editMode, editsubs }) {
 
     if(msisdn === undefined || customer_id_owner === NaN || customer_id_user === NaN){
       alert("All Fields Are Required")
+    }else if(!msisdn.match(phoneValidation)){
+      alert("Phone Number Doesnt Match Required Format")
     }else{
       axios
       .post("/mobile-sub", data)
@@ -132,7 +136,7 @@ function AddEditMobileForm({ editMode, editsubs }) {
           className="bg-blue-700 md:w-40 w-full rounded-lg h-10 text-white"
           onClick={addEditForm}
         >
-          {editMode ? `Edit Subscriber ` : `Add Subscriber`}
+          {editMode ? `Save` : `Add Subscriber`}
         </button>
       </Modal.Footer>
     </div>
