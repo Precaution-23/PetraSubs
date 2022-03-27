@@ -21,21 +21,21 @@ function MobileStats() {
   };
 
   // get prepaid subs 
-  const getPrepaidSubs = () => {
-    const prepaidSubs = subOriginalData.filter(item => item.service_type === `Prepaid`)
-    return prepaidSubs
-  }
+  // const getPrepaidSubs = () => {
+  //   const prepaidSubs = subOriginalData.filter(item => item.service_type === `Prepaid`)
+  //   return prepaidSubs
+  // }
 
     // get postpaid subs 
-    const getPostPaidSubs = () => {
-      const postPaidSubs = subOriginalData.filter(item => item.service_type === `Postpaid`)
-      return postPaidSubs
-    }
+    // const getPostPaidSubs = () => {
+    //   const postPaidSubs = subOriginalData.filter(item => item.service_type === `Postpaid`)
+    //   return postPaidSubs
+    // }
 
   useEffect(() => {
     fetchSubs()
-    getPrepaidSubs()
-    getPostPaidSubs()
+    // getPrepaidSubs()
+    // getPostPaidSubs()
   }, [])
   
 
