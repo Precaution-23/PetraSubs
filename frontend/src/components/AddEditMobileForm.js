@@ -26,7 +26,11 @@ function AddEditMobileForm({ editMode, editsubs }) {
       customer_id_user: parseInt(customer_id_user),
       service_type: service_type,
     };
-    axios
+
+    if(msisdn === undefined || customer_id_owner === NaN || customer_id_user === NaN){
+      alert("All Fields Are Required")
+    }else{
+      axios
       .post("/mobile-sub", data)
       .then((response) => {
         alert("Mobile Subscriber Added")
@@ -36,6 +40,8 @@ function AddEditMobileForm({ editMode, editsubs }) {
         alert("Error Adding Subscriber. Try Again")
         window.location.reload()
       });
+    }
+
   };
 
   // logic to editMobileSubs
@@ -76,7 +82,7 @@ function AddEditMobileForm({ editMode, editsubs }) {
               type="text"
               required
               defaultValue={msisdn || ""}
-              placeholder="Phone Number"
+              placeholder="Phone Number*"
               onChange={(e) => setmsisdn(e.target.value)}
               className="w-full h-10 rounded-lg border-2 px-2 focus:outline-gray-400"
             />
@@ -104,7 +110,7 @@ function AddEditMobileForm({ editMode, editsubs }) {
               type="number"
               required
               defaultValue={customer_id_owner || ""}
-              placeholder="Owner Id"
+              placeholder="Owner Id*"
               onChange={(e) => setcustomer_id_owner(e.target.value)}
               className="w-full h-10 rounded-lg border-2 px-2 focus:outline-gray-400"
             />
@@ -114,7 +120,7 @@ function AddEditMobileForm({ editMode, editsubs }) {
               type="number"
               required
               defaultValue={customer_id_user || ""}
-              placeholder="User Id"
+              placeholder="User Id*"
               onChange={(e) => setcustomer_id_user(e.target.value)}
               className="w-full h-10 rounded-lg border-2 px-2 focus:outline-gray-400"
             />

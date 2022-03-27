@@ -27,7 +27,7 @@ function Header({ pages }) {
         </div>
       </div>
 
-      <div className="md:mx-44 mx-4">{pages}</div>
+      <div className="md:mx-44 mx-4 ipad-pro:mx-10 ipad:mx-5">{pages}</div>
     </div>
   );
 }
