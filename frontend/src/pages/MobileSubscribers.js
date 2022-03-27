@@ -72,16 +72,11 @@ function MobileSubscribers() {
 
   };
 
-  const handlePageChange = async (event, value) => {
-    setpageNumber(value);
-    await fetchSubs(value);
-  };
 
 
-
-useEffect(() => {
-    fetchSubs()
-}, [])
+  useEffect(() => {
+      fetchSubs()
+  }, [])
 
 
   return (

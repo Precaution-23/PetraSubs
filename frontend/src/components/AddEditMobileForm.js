@@ -10,7 +10,7 @@ function AddEditMobileForm({ editMode, editsubs }) {
   const [service_type, setservice_type] = useState(editsubs?.service_type === undefined ? "Prepaid" : editsubs?.service_type);
 
   // regex for phone number validation
-  const phoneValidation = /^[\+]?[0-9]{3}?[0-9]{9,15}$/im
+  const phoneValidation = /^[+]?[0-9]{3}?[0-9]{9,15}$/im
 
   // logic to add/edit mobile subscribers
   const addEditForm = async () => {
@@ -31,14 +31,14 @@ function AddEditMobileForm({ editMode, editsubs }) {
     };
 
     // checks if fields are empty
-    if(msisdn === undefined || customer_id_owner === NaN || customer_id_user === NaN){
+    if(msisdn === undefined || customer_id_owner.isNaN() || customer_id_user.isNaN()){
       alert("All Fields Are Required")
 
       // checks if phone format is not correct but owner_id or user_id is empty
-    }else if(!msisdn.match(phoneValidation) || customer_id_owner === NaN || customer_id_user === NaN){
+    }else if(!msisdn.match(phoneValidation) || customer_id_owner.isNaN() || customer_id_user.isNaN()){
       alert("Phone Number Does Not Match Required Format")
       // checks if phone format is correct but owner_id or user_id is empty
-    }else if( msisdn.match(phoneValidation) && customer_id_owner === NaN || msisdn.match(phoneValidation) && customer_id_user === NaN){
+    }else if( (msisdn.match(phoneValidation) && customer_id_owner === NaN) || (msisdn.match(phoneValidation) && customer_id_user === NaN)){
       alert("All Fields Are Required")
     }else{
       axios
