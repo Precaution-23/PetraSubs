@@ -36,7 +36,6 @@ function AddEditMobileForm({ editMode, editsubs }) {
 
       // checks if phone format is not correct but owner_id or user_id is empty
     }else if(!msisdn.match(phoneValidation) || isNaN(customer_id_owner) || isNaN(customer_id_user)){
-      console.log("checks through here")
       alert("Phone Number Does Not Match Required Format")
       // checks if phone format is correct but owner_id or user_id is empty
     }else if( (msisdn.match(phoneValidation) && isNaN(customer_id_owner)) || (msisdn.match(phoneValidation) && isNaN(customer_id_user))){
