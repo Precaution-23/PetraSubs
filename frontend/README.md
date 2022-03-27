@@ -16,6 +16,40 @@ Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 The page will reload when you make changes.\
 You may also see any lint errors in the console.
 
+### `Endpoints Explanation`
+
+BASE_URL = ""
+
+Fecth all mobile subscribers in the database
+### `BASE_URL/mobile-sub` => This endpoint gives access to all the mobile subscription data inthe data base
+I used it to display all the data and also used this same endpoint to display that statistics of Postpaid and Prepaid.
+
+Add New Mobile Subscribers
+### `BASE_URL/mobile-sub` => This endpoint was used to create new mobile subscription. The method is POST which makes it different from the fetch endpoint
+
+BODY SAMPLE :
+{
+    "msisdn": "0244357283",
+    "customer_id_owner": 2,
+    "customer_id_user": 7,
+    "service_type": "postpaid"
+}
+
+Edit Mobile Subscribers
+### `BASE_URL/mobile-sub/:id` => This endpoint was used to edit mobile subscription. The method is PUT which makes it different from the fetch endpoint
+
+BODY SAMPLE :
+{
+    "msisdn": "0244357283",
+    "customer_id_owner": 2,
+    "customer_id_user": 7,
+    "service_type": "prepaid"
+}
+
+Delete Mobile Subscribers
+### `BASE_URL/mobile-sub/:id` => This endpoint was used to edit mobile subscription. The method is DELETE which makes it different from the fetch endpoint
+
+
 ### `npm test`
 
 Launches the test runner in the interactive watch mode.\

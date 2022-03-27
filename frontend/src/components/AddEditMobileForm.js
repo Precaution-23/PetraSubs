@@ -30,12 +30,15 @@ function AddEditMobileForm({ editMode, editsubs }) {
       service_type: service_type,
     };
 
+    // checks if fields are empty
     if(msisdn === undefined || customer_id_owner === NaN || customer_id_user === NaN){
       alert("All Fields Are Required")
-    }else if(!msisdn.match(phoneValidation || customer_id_owner === NaN || customer_id_user === NaN)){
+
+      // checks if phone format is not correct but owner_id or user_id is empty
+    }else if(!msisdn.match(phoneValidation) || customer_id_owner === NaN || customer_id_user === NaN){
       alert("Phone Number Does Not Match Required Format")
-    }else if(msisdn.match(phoneValidation && customer_id_owner === NaN || customer_id_user === NaN)){
-      console.log(data)
+      // checks if phone format is correct but owner_id or user_id is empty
+    }else if( msisdn.match(phoneValidation) && customer_id_owner === NaN || msisdn.match(phoneValidation) && customer_id_user === NaN){
       alert("All Fields Are Required")
     }else{
       axios
@@ -61,8 +64,7 @@ function AddEditMobileForm({ editMode, editsubs }) {
       service_type: service_type,
     };
 
-    axios
-      .put(`http://localhost:3001/mobile-sub/${editsubs._id}`, data)
+    axios.put(`http://localhost:3001/mobile-sub/${editsubs._id}`, data)
       .then((response) => {
         alert("Editing Successful")
         window.location.reload()
@@ -120,7 +122,7 @@ function AddEditMobileForm({ editMode, editsubs }) {
               defaultValue={customer_id_owner || ""}
               placeholder="Owner Id*"
               onChange={(e) => setcustomer_id_owner(e.target.value)}
-              className="w-full h-10 rounded-lg border-2 px-2 focus:outline-gray-400 "
+              className="w-full h-10 rounded-lg border-2 px-2 focus:outline-gray-400 overflow-y-hidden"
             />
           </div>
           <div className="mx-1">

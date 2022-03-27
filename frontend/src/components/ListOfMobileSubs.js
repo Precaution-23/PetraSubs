@@ -17,31 +17,33 @@ function ListOfMobileSubs({ getSubs, loading, searchResults }) {
   const [pageNumber, setpageNumber] = useState(1)
 
 
+   // open edit from modal
   const showEditForm = () => {
     setopenEditForm(true);
     seteditMode(true);
   };
 
+   // open delete modal
   const openDelete = () => {
     setShowDelete(true);
   };
 
+  // close delete modal
   const closeDelete = () => {
     setShowDelete(false);
   };
 
+   // close edit form modal
   const closeEditForm = () => {
     setopenEditForm(false);
   };
 
+// logic for pagination
 const handlePageChange = (value) => {
   setpageNumber(value)
   setfirstsliceValue((10 * value) - 9)
   setsecondSliceValue(10 * value)
 }
-
-console.log("first", firstsliceValue)
-console.log("second", secondSliceValue)
 
 
 
@@ -84,7 +86,7 @@ console.log("second", secondSliceValue)
                   <div className="">{subs._id}</div>
                   <div className="">{subs.customer_id_owner}</div>
                   <div className="">{subs.customer_id_user}</div>
-                  <div className="">{subs.msisdn}</div>
+                  <div title={subs.msisdn} className=" cursor-pointer  truncate ...">{subs.msisdn}</div>
                   <div className="">{subs.service_type}</div>
                   <div className="">
                     {moment(subs.service_start_date).unix()}

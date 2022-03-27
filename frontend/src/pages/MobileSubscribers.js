@@ -124,7 +124,7 @@ useEffect(() => {
         </div>
 
         <div className="flex md:justify-end justify-center mt-10 mb-10">
-          <button className="bg-blue-700 md:w-40 w-full ipad-pro:w-[32%] ipad:w-[32%] rounded-lg h-10 text-white" onClick={openAddForm}>
+          <button className="bg-blue-700 md:w-40 w-full ipad-pro:w-[32%] ipad:w-[32%] next-hub:w-[32%] rounded-lg h-10 text-white" onClick={openAddForm}>
             Add Subscriber
           </button>
         </div>
