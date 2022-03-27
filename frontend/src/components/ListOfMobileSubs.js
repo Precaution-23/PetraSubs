@@ -32,18 +32,18 @@ function ListOfMobileSubs({ getSubs, loading }) {
 
   return (
     <div>
-      <div className="grid grid-cols-6 gap-4 p-5 border-2 rounded-lg mb-5 ">
+      <div className="md:grid md:grid-cols-6 flex gap-4 p-5 border-2 rounded-lg mb-5 overflow-x-scroll ">
         <div className="col-span-5">
-          <div className="grid md:grid-cols-6 grid-cols-2 gap-2">
-            <div className="font-semibold text-lg">ID</div>
-            <div className="font-semibold text-lg">OWNER ID</div>
-            <div className="font-semibold text-lg">USER ID</div>
-            <div className="font-semibold text-lg">PHONE NO.</div>
-            <div className="font-semibold text-lg">SUB TYPE</div>
-            <div className="font-semibold text-lg">DATE</div>
+          <div className="md:grid md:grid-cols-6 flex overflow-x-scroll gap-2">
+            <div className="font-semibold md:text-lg text-sm">ID</div>
+            <div className="font-semibold md:text-lg text-sm">OWNER ID</div>
+            <div className="font-semibold md:text-lg text-sm">USER ID</div>
+            <div className="font-semibold md:text-lg text-sm">PHONE NO.</div>
+            <div className="font-semibold md:text-lg text-sm">SUB TYPE</div>
+            <div className="font-semibold md:text-lg text-sm">DATE</div>
           </div>
         </div>
-        <div className="flex font-semibold text-lg">ACTIONS</div>
+        <div className="flex font-semibold md:text-lg text-sm">ACTIONS</div>
       </div>
 
       {loading ? (
@@ -61,10 +61,10 @@ function ListOfMobileSubs({ getSubs, loading }) {
           return (
             <div
               key={index}
-              className="grid grid-cols-6 gap-4 border-2 rounded-lg w-full p-5 hover:border-blue-700 hover:shadow-lg transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-20 mb-2 "
+              className="md:grid md:grid-cols-6 flex gap-4 border-2 rounded-lg w-full p-5 hover:border-blue-700 hover:shadow-lg transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-20 mb-2 overflow-x-scroll  "
             >
               <div className="col-span-5">
-                <div className="grid md:grid-cols-6 grid-cols-2 gap-2 ipad:grid-cols-6">
+                <div className="md:grid md:grid-cols-6 flex overflow-x-scroll gap-2 ipad:grid-cols-6">
                   <div className="">{subs._id}</div>
                   <div className="">{subs.customer_id_owner}</div>
                   <div className="">{subs.customer_id_user}</div>
@@ -76,7 +76,7 @@ function ListOfMobileSubs({ getSubs, loading }) {
                 </div>
               </div>
 
-              <div className="md:flex md:justify-start ">
+              <div className="flex justify-start ">
                 <div
                   className="pl-2 pr-2"
                   onClick={() => {
