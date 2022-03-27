@@ -130,7 +130,7 @@ function ListOfMobileSubs({ getSubs, loading, searchResults }) {
         })
       )}
 
-      {getSubs.length < 1 ? (
+      {getSubs.length < 1 || getSubs.length < 11 ? (
         ``
       ) : (
         <div className="flex justify-center mt-10">
