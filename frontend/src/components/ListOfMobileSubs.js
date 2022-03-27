@@ -105,7 +105,7 @@ const handlePageChange = (value) => {
                   <EditIcon />
                 </div>
                 <div
-                  className="pl-2 pr-2 ipad:p-0"
+                  className="pl-2 pr-2 "
                   onClick={() => {
                     openDelete();
                     setEditSubs(subs);
