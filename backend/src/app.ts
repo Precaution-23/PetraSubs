@@ -1,7 +1,7 @@
 
 import express from 'express';
 import helmet from 'helmet';
-import cors from 'cors';
+const cors = require('cors');
 import path from 'path';
 import morgan from 'morgan';
 import bodyParser from 'body-parser';
