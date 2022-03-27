@@ -3,7 +3,7 @@ import axios from "axios";
 
 function MobileStats() {
   const [getSubs, setgetSubs] = useState([]);
-  const [subOriginalData, setsubOriginalData] = useState([]);
+  // const [subOriginalData, setsubOriginalData] = useState([]);
 
 
   // fetch lists of mobile subscribers
@@ -12,7 +12,7 @@ function MobileStats() {
       .get("/mobile-sub")
       .then((response) => {
         setgetSubs(response.data);
-        setsubOriginalData(response.data);
+        // setsubOriginalData(response.data);
       })
       .catch((error) => {
         alert("There Was An Error Fecthing The Data. Try Again");
