@@ -6,15 +6,8 @@ function Header({ pages }) {
   return (
     <div className="relative">
       <div className="max-w-full mx-auto bg-blue-700 px-4 sm:px-6 sticky md:sticky top-0 z-[1000]">
-        <div className="flex justify-between items-center  py-3 md:justify-start md:space-x-10">
+        <div className="flex justify-between items-center  py-5 md:justify-start md:space-x-10">
           <div className="flex justify-start lg:w-0 lg:flex-1">
-            <a href="/">
-              <img
-                className="h-8 w-auto sm:h-10 rounded-3xl"
-                src="./maxresdefault.jpg"
-                alt=""
-              />
-            </a>
           </div>
           <nav className="md:flex md:space-x-10 space-x-5">
           <a

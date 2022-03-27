@@ -35,7 +35,7 @@ function ListOfMobileSubs({getSubs, loading}) {
   return (
     <div>
       <div
-        className="flex justify-between border-2 rounded-lg w-full p-5 hover:border-blue-700 hover:shadow-lg transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-20 mb-2"
+        className="flex justify-between border-2 rounded-lg w-full p-5 mb-2"
       >
         <div className="grid grid-cols-4">
           <div className="">ID</div>
@@ -62,16 +62,16 @@ function ListOfMobileSubs({getSubs, loading}) {
                 return (
                   <div
                     key={index}
-                    className="flex justify-between border-2 rounded-lg w-full p-5 hover:border-blue-700 hover:shadow-lg transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-20 mb-2"
+                    className="flex justify-between border-2 rounded-lg w-full p-5 hover:border-blue-700 hover:shadow-lg transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-20 mb-2 "
                   >
-                    <div className="grid md:grid-cols-4 grid-cols-1">
+                    <div className="grid md:grid-cols-4 grid-cols-1  ">
                       <div className="">{subs.customer_id_user}</div>
                       <div className="">{subs.msisdn}</div>
                       <div className="">{subs.service_type}</div>
                       <div className="">{subs.service_start_date}</div>
                     </div>
         
-                    <div className="md:flex md:justify-between hidden">
+                    <div className="md:flex md:justify-between ">
                       <div className="pl-2 pr-2" onClick={() => {
                           showEditForm()
                           setEditSubs(subs)
