@@ -64,7 +64,7 @@ function AddEditMobileForm({ editMode, editsubs }) {
       service_type: service_type,
     };
 
-    axios.put(`http://localhost:3001/mobile-sub/${editsubs._id}`, data)
+    axios.put(`/mobile-sub/${editsubs._id}`, data)
       .then((response) => {
         alert("Editing Successful")
         window.location.reload()
