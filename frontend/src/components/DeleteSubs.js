@@ -6,7 +6,7 @@ function DeleteSubs({ deleteId, closeDelete }) {
   // delete subscriber
   const deleteSub = async () => {
     axios
-      .delete(`http://localhost:3001/mobile-sub/${deleteId._id}`)
+      .delete(`/mobile-sub/${deleteId._id}`)
       .then((response) => {
         alert("Deletion Successful")
         setTimeout(() => {

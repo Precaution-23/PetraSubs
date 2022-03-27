@@ -27,7 +27,7 @@ function AddEditMobileForm({ editMode, editsubs }) {
       service_type: service_type,
     };
     axios
-      .post("http://localhost:3001/mobile-sub", data)
+      .post("/mobile-sub", data)
       .then((response) => {
         alert("Mobile Subscriber Added")
             window.location.reload()

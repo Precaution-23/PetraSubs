@@ -31,7 +31,7 @@ function MobileSubscribers() {
   const fetchSubs = async () => {
     setLoading(true)
     axios
-      .get("http://localhost:3001/mobile-sub")
+      .get("/mobile-sub")
       .then((response) => {
         setLoading(false)
         setgetSubs(response.data);
