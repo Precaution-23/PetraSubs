@@ -3,7 +3,7 @@ import axios from "axios";
 
 function MobileStats() {
   const [getSubs, setgetSubs] = useState([]);
-  // const [subOriginalData, setsubOriginalData] = useState([]);
+  const [subOriginalData, setsubOriginalData] = useState([]);
 
 
   // fetch lists of mobile subscribers
@@ -12,7 +12,7 @@ function MobileStats() {
       .get("/mobile-sub")
       .then((response) => {
         setgetSubs(response.data);
-        // setsubOriginalData(response.data);
+        setsubOriginalData(response.data);
       })
       .catch((error) => {
         alert("There Was An Error Fecthing The Data. Try Again");
@@ -21,21 +21,25 @@ function MobileStats() {
   };
 
   // get prepaid subs 
-  // const getPrepaidSubs = () => {
-  //   const prepaidSubs = subOriginalData.filter(item => item.service_type === `Prepaid`)
-  //   return prepaidSubs
-  // }
+  const getPrepaidSubs = () => {
+    const prepaidSubs = subOriginalData.filter(item => item.service_type === `Prepaid`)
+    return prepaidSubs
+  }
 
     // get postpaid subs 
-    // const getPostPaidSubs = () => {
-    //   const postPaidSubs = subOriginalData.filter(item => item.service_type === `Postpaid`)
-    //   return postPaidSubs
-    // }
+    const getPostPaidSubs = () => {
+      const postPaidSubs = subOriginalData.filter(item => item.service_type === `Postpaid`)
+      return postPaidSubs
+    }
+
+    useEffect(() => {
+      getPostPaidSubs()
+      getPrepaidSubs()
+    }, )
+    
 
   useEffect(() => {
     fetchSubs()
-    // getPrepaidSubs()
-    // getPostPaidSubs()
   }, []);
   
 
@@ -48,11 +52,11 @@ function MobileStats() {
         </div>
         <div className="flex justify-between border-2 border-gray-400 rounded-md items-center h-20 p-5 hover:border-blue-700 hover:shadow-lg transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-20">
           <div className="font-bold text-lg">PREPAID SUBS NUMBERS</div>
-          {/* <div className="font-bold text-lg">{getPrepaidSubs().length}</div> */}
+          <div className="font-bold text-lg">{getPrepaidSubs().length}</div>
         </div>
         <div className="flex justify-between border-2 border-gray-400 rounded-md items-center h-20 p-5 hover:border-blue-700 hover:shadow-lg transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-20">
           <div className="font-bold text-lg">POSTPAID SUBS NUMBERS</div>
-          {/* <div className="font-bold text-lg">{getPostPaidSubs().length}</div> */}
+          <div className="font-bold text-lg">{getPostPaidSubs().length}</div>
         </div>
       </div>
     </div>
