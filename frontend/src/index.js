@@ -4,37 +4,12 @@ import './index.css';
 import './App.css'
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import { createTheme, NextUIProvider } from '@nextui-org/react';
+import { NextUIProvider } from '@nextui-org/react';
 
-// 2. Call `createTheme` and pass your custom values
-const theme = createTheme({
-  type: "light",
-  theme: {
-    colors: {
-      // brand colors
-      primary: '#0070f3',
-      secondary: '#5E1DAD',
-      buttonPrimaryTextColor: '#FFFFFF',
-      hoverLinkColor: '',
-      errorTextColor: '',
-      HoverButtonColor: '',
-      hoverTextColor: '',
-      gradient: 'linear-gradient(112deg, $blue100 -25%, $pink500 -10%, $purple500 80%)',
-      link: '#5E1DAD',
-
-      // you can also create your own color
-      myColor: '#FF0000'
-
-      // ...  more colors
-    },
-    space: {},
-    fonts: {}
-  }
-})
 
 ReactDOM.render(
   <React.StrictMode>
-    <NextUIProvider  theme={theme}>
+    <NextUIProvider >
     <App />
     </NextUIProvider>
   </React.StrictMode>,

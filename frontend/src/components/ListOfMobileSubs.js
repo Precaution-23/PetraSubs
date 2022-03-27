@@ -52,12 +52,12 @@ const handlePageChange = (value) => {
       <div className="md:grid md:grid-cols-6 flex gap-4 p-5 border-2 rounded-lg mb-5 overflow-x-scroll md:overflow-hidden ">
         <div className="col-span-5">
           <div className="md:grid md:grid-cols-6 flex overflow-x-scroll md:overflow-hidden gap-2">
-            <div className="font-semibold md:text-lg text-sm">ID</div>
-            <div className="font-semibold md:text-lg text-sm">OWNER ID</div>
-            <div className="font-semibold md:text-lg text-sm">USER ID</div>
-            <div className="font-semibold md:text-lg text-sm">PHONE NO.</div>
-            <div className="font-semibold md:text-lg text-sm">SUB TYPE</div>
-            <div className="font-semibold md:text-lg text-sm">DATE</div>
+            <div className="font-semibold text-sm ">ID</div>
+            <div className="font-semibold text-sm whitespace-nowrap">OWNER ID</div>
+            <div className="font-semibold text-sm whitespace-nowrap">USER ID</div>
+            <div className="font-semibold text-sm whitespace-nowrap">PHONE NO.</div>
+            <div className="font-semibold text-sm whitespace-nowrap">SUB TYPE</div>
+            <div className="font-semibold text-sm">DATE</div>
           </div>
         </div>
         <div className="flex font-semibold md:text-lg text-sm">ACTIONS</div>
