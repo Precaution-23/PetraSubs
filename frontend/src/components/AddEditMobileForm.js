@@ -10,7 +10,8 @@ function AddEditMobileForm({ editMode, editsubs }) {
   const [service_type, setservice_type] = useState(editsubs?.service_type === undefined ? "Prepaid" : editsubs?.service_type);
 
   // regex for phone number validation
-  const phoneValidation = /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/im
+  const phoneValidation = /^[\+]?[0-9]{3}?[0-9]{9,15}$/im
+
   // logic to add/edit mobile subscribers
   const addEditForm = async () => {
     if (editMode) {
@@ -31,8 +32,11 @@ function AddEditMobileForm({ editMode, editsubs }) {
 
     if(msisdn === undefined || customer_id_owner === NaN || customer_id_user === NaN){
       alert("All Fields Are Required")
-    }else if(!msisdn.match(phoneValidation)){
-      alert("Phone Number Doesnt Match Required Format")
+    }else if(!msisdn.match(phoneValidation || customer_id_owner === NaN || customer_id_user === NaN)){
+      alert("Phone Number Does Not Match Required Format")
+    }else if(msisdn.match(phoneValidation && customer_id_owner === NaN || customer_id_user === NaN)){
+      console.log(data)
+      alert("All Fields Are Required")
     }else{
       axios
       .post("/mobile-sub", data)
@@ -116,7 +120,7 @@ function AddEditMobileForm({ editMode, editsubs }) {
               defaultValue={customer_id_owner || ""}
               placeholder="Owner Id*"
               onChange={(e) => setcustomer_id_owner(e.target.value)}
-              className="w-full h-10 rounded-lg border-2 px-2 focus:outline-gray-400"
+              className="w-full h-10 rounded-lg border-2 px-2 focus:outline-gray-400 "
             />
           </div>
           <div className="mx-1">

@@ -12,6 +12,10 @@ function ListOfMobileSubs({ getSubs, loading, searchResults }) {
   const [editMode, seteditMode] = useState(false);
   const [editsubs, setEditSubs] = useState({});
   const [showDelete, setShowDelete] = useState(false);
+  const [firstsliceValue, setfirstsliceValue] = useState(0)
+  const [secondSliceValue, setsecondSliceValue] = useState(10)
+  const [pageNumber, setpageNumber] = useState(1)
+
 
   const showEditForm = () => {
     setopenEditForm(true);
@@ -30,11 +34,22 @@ function ListOfMobileSubs({ getSubs, loading, searchResults }) {
     setopenEditForm(false);
   };
 
+const handlePageChange = (value) => {
+  setpageNumber(value)
+  setfirstsliceValue((10 * value) - 9)
+  setsecondSliceValue(10 * value)
+}
+
+console.log("first", firstsliceValue)
+console.log("second", secondSliceValue)
+
+
+
   return (
     <div>
-      <div className="md:grid md:grid-cols-6 flex gap-4 p-5 border-2 rounded-lg mb-5 overflow-x-scroll ">
+      <div className="md:grid md:grid-cols-6 flex gap-4 p-5 border-2 rounded-lg mb-5 overflow-x-scroll md:overflow-hidden ">
         <div className="col-span-5">
-          <div className="md:grid md:grid-cols-6 flex overflow-x-scroll gap-2">
+          <div className="md:grid md:grid-cols-6 flex overflow-x-scroll md:overflow-hidden gap-2">
             <div className="font-semibold md:text-lg text-sm">ID</div>
             <div className="font-semibold md:text-lg text-sm">OWNER ID</div>
             <div className="font-semibold md:text-lg text-sm">USER ID</div>
@@ -48,7 +63,7 @@ function ListOfMobileSubs({ getSubs, loading, searchResults }) {
 
       {loading ? (
         <>
-          <div className="flex justify-center text-xl">Loading</div>
+          <div className="flex justify-center text-xl">Loading...</div>
         </>
       ) : getSubs.length < 1 ? (
         <>
@@ -58,14 +73,14 @@ function ListOfMobileSubs({ getSubs, loading, searchResults }) {
           </div>
         </>
       ) : (
-        getSubs.map((subs, index) => {
+        getSubs.slice(firstsliceValue, secondSliceValue).map((subs, index) => {
           return (
             <div
               key={index}
-              className="md:grid md:grid-cols-6 flex gap-4 border-2 rounded-lg w-full p-5 hover:border-blue-700 hover:shadow-lg transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-20 mb-2 overflow-x-scroll  "
+              className="md:grid md:grid-cols-6 flex gap-4 border-2 rounded-lg w-full p-5 hover:border-blue-700 hover:shadow-lg transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-20 mb-2 overflow-x-scroll md:overflow-hidden  "
             >
               <div className="col-span-5">
-                <div className="md:grid md:grid-cols-6 flex overflow-x-scroll gap-2 ipad:grid-cols-6">
+                <div className="md:grid md:grid-cols-6 flex overflow-x-scroll md:overflow-hidden gap-2 ipad:grid-cols-6">
                   <div className="">{subs._id}</div>
                   <div className="">{subs.customer_id_owner}</div>
                   <div className="">{subs.customer_id_user}</div>
@@ -103,7 +118,7 @@ function ListOfMobileSubs({ getSubs, loading, searchResults }) {
       )}
 
       <div className="flex justify-center mt-10">
-        <Pagination total={getSubs.length} initialPage={1} />
+        <Pagination total={parseInt(getSubs.length / 10) + (getSubs.length % 10 > 0 ? 1 : 0) }  page={pageNumber} onChange={handlePageChange} />
       </div>
 
       <Modal

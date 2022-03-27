@@ -13,6 +13,7 @@ function MobileSubscribers() {
   const [filterValue, setfilterValue] = useState("");
   const [loading, setLoading] = useState(false)
   const [searchResults, setsearchResults] = useState("")
+  const [pageNumber, setpageNumber] = useState(1);
 
   const [editMode, seteditMode] = useState(false)
 
@@ -65,10 +66,15 @@ function MobileSubscribers() {
   }
 
     // filter data with both number and service type values
-    const filteredData = subOriginalData.filter(item => item.service_type == service_type && item.msisdn == msisdn.trim())
+    const filteredData = subOriginalData.filter(item => item.service_type === service_type && item.msisdn === msisdn.trim())
     setgetSubs(filteredData)
     setsearchResults(filteredData)
 
+  };
+
+  const handlePageChange = async (event, value) => {
+    setpageNumber(value);
+    await fetchSubs(value);
   };
 
 
@@ -123,7 +129,12 @@ useEffect(() => {
           </button>
         </div>
 
-        <ListOfMobileSubs getSubs={getSubs} loading={loading} searchResults={searchResults}/>
+        <ListOfMobileSubs
+          getSubs={getSubs}
+          loading={loading}
+          searchResults={searchResults}
+          pageNumber={pageNumber}
+          />
       </div>
 
       <Modal
