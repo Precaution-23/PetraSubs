@@ -21,13 +21,13 @@ function MobileStats() {
   };
 
   // get prepaid subs 
-  const getPrepaidSubs = () => {
+  const getPrepaidSubs = async() => {
     const prepaidSubs = subOriginalData.filter(item => item.service_type === `Prepaid`)
     return prepaidSubs
   }
 
     // get postpaid subs 
-    const getPostPaidSubs = () => {
+    const getPostPaidSubs = async() => {
       const postPaidSubs = subOriginalData.filter(item => item.service_type === `Postpaid`)
       return postPaidSubs
     }

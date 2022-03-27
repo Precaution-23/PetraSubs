@@ -38,7 +38,7 @@ function AddEditMobileForm({ editMode, editsubs }) {
     }else if(!msisdn.match(phoneValidation) || customer_id_owner.isNaN() || customer_id_user.isNaN()){
       alert("Phone Number Does Not Match Required Format")
       // checks if phone format is correct but owner_id or user_id is empty
-    }else if( (msisdn.match(phoneValidation) && customer_id_owner === NaN) || (msisdn.match(phoneValidation) && customer_id_user === NaN)){
+    }else if( (msisdn.match(phoneValidation) && customer_id_owner.isNaN()) || (msisdn.match(phoneValidation) && customer_id_user.isNaN())){
       alert("All Fields Are Required")
     }else{
       axios

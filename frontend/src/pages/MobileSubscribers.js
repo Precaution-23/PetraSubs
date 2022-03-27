@@ -13,7 +13,6 @@ function MobileSubscribers() {
   const [filterValue, setfilterValue] = useState("");
   const [loading, setLoading] = useState(false)
   const [searchResults, setsearchResults] = useState("")
-  const [pageNumber, setpageNumber] = useState(1);
 
   const [editMode, seteditMode] = useState(false)
 
@@ -72,8 +71,6 @@ function MobileSubscribers() {
 
   };
 
-
-
   useEffect(() => {
       fetchSubs()
   }, [])
@@ -128,7 +125,6 @@ function MobileSubscribers() {
           getSubs={getSubs}
           loading={loading}
           searchResults={searchResults}
-          pageNumber={pageNumber}
           />
       </div>
 
