@@ -48,11 +48,11 @@ function MobileStats() {
         </div>
         <div className="flex justify-between border-2 border-gray-400 rounded-md items-center h-20 p-5 hover:border-blue-700 hover:shadow-lg transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-20">
           <div className="font-bold text-lg">PREPAID SUBS NUMBERS</div>
-          <div className="font-bold text-lg">{getPrepaidSubs().length}</div>
+          {/* <div className="font-bold text-lg">{getPrepaidSubs().length}</div> */}
         </div>
         <div className="flex justify-between border-2 border-gray-400 rounded-md items-center h-20 p-5 hover:border-blue-700 hover:shadow-lg transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-20">
           <div className="font-bold text-lg">POSTPAID SUBS NUMBERS</div>
-          <div className="font-bold text-lg">{getPostPaidSubs().length}</div>
+          {/* <div className="font-bold text-lg">{getPostPaidSubs().length}</div> */}
         </div>
       </div>
     </div>
