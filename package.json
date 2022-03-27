@@ -3,6 +3,9 @@
     "version": "1.0.0",
     "description": "",
     "main": "backend/dist/app.js",
+    "engines": {
+      "node": "16.x"
+    },
     "scripts": {
       "start": "node backend/dist/app.js",
       "install": "cd backend && yarn install && cd ../frontend && yarn install",
