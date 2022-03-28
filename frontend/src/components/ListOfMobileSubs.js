@@ -65,7 +65,7 @@ function ListOfMobileSubs({ getSubs, loading, searchResults }) {
             <div className="font-semibold text-sm">DATE</div>
           </div>
         </div>
-        <div className="flex font-semibold md:text-lg text-sm">ACTIONS</div>
+        <div className="flex font-semibold text-sm">ACTIONS</div>
       </div>
 
       {loading ? (
