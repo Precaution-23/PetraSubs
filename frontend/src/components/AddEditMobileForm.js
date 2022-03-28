@@ -99,7 +99,7 @@ function AddEditMobileForm({ editMode, editsubs }) {
           </div>
           <div className="mx-1">
           <select
-              className="w-full h-10 rounded-lg focus:outline-gray-400 border-2"
+              className="w-full h-10 rounded-lg focus:outline-gray-400 border-2 px-2"
               onChange={(e) => {
                 setservice_type(e.target.value);
               }}

@@ -91,7 +91,7 @@ function MobileSubscribers() {
           </div>
           <div>
             <select
-              className="w-full h-10 rounded-lg focus:outline-gray-400 border-2"
+              className="w-full h-10 rounded-lg focus:outline-gray-400 border-2 px-2"
               onChange={(e) => {
                 setfilterValue(e.target.value);
               }}

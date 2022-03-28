@@ -80,6 +80,9 @@ function ListOfMobileSubs({ getSubs, loading, searchResults }) {
               : `No data currently...`}
           </div>
         </>
+
+        //41 / 10 = 4
+        // 40 % 10 = 0
       ) : (
         getSubs.slice(firstsliceValue, secondSliceValue).map((subs, index) => {
           return (
