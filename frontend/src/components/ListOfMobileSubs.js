@@ -46,9 +46,9 @@ function ListOfMobileSubs({ getSubs, loading, searchResults }) {
 
   return (
     <div>
-      <div className="md:grid md:grid-cols-6 flex gap-4 p-5 border-2 rounded-lg mb-5 overflow-x-scroll md:overflow-hidden ">
+      <div className="btn-primary">
         <div className="col-span-5">
-          <div className="md:grid md:grid-cols-6 flex overflow-x-scroll md:overflow-hidden gap-2">
+          <div className="hello">
             <div className="font-semibold text-sm ">ID</div>
             <div className="font-semibold text-sm whitespace-nowrap">
               OWNER ID

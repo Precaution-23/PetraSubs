@@ -1,3 +1,12 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer components {
+    .btn-primary {
+      @apply md:grid md:grid-cols-6 flex gap-4 p-5 border-2 rounded-lg mb-5 overflow-x-scroll md:overflow-hidden;
+    }
+    .hello{
+        @apply md:grid md:grid-cols-6 flex overflow-x-scroll md:overflow-hidden gap-2;
+    }
+  }
