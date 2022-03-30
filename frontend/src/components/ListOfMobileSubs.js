@@ -7,7 +7,7 @@ import { Modal } from "@nextui-org/react";
 import { Pagination } from "@nextui-org/react";
 import moment from "moment";
 
-function ListOfMobileSubs({ getSubs, loading, searchResults }) {
+function ListOfMobileSubs({ getSubs, loading, searchResults, sarchButtonClicked }) {
   const [openEditForm, setopenEditForm] = useState(false);
   const [editMode, seteditMode] = useState(false);
   const [editsubs, setEditSubs] = useState({});
@@ -75,8 +75,8 @@ function ListOfMobileSubs({ getSubs, loading, searchResults }) {
       ) : getSubs.length < 1 ? (
         <>
           <div className="flex justify-center text-xl">
-            {searchResults.length === 0
-              ? `No result matched your query`
+            {sarchButtonClicked && searchResults.length === 0
+              ? `No result matched your query...`
               : `No data currently...`}
           </div>
         </>

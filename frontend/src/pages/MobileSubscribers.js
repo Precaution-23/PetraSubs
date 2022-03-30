@@ -13,6 +13,7 @@ function MobileSubscribers() {
   const [filterValue, setfilterValue] = useState("");
   const [loading, setLoading] = useState(false)
   const [searchResults, setsearchResults] = useState("")
+  const [sarchButtonClicked, setsarchButtonClicked] = useState(false)
 
   const [editMode, seteditMode] = useState(false)
 
@@ -54,6 +55,8 @@ function MobileSubscribers() {
     if(msisdn === '' && service_type !== "All" ){
         const filteredData = subOriginalData.filter(item => item.service_type === service_type)
         setgetSubs(filteredData)
+        setsarchButtonClicked(true)
+        setsearchResults(filteredData)
         return
     }
 
@@ -61,12 +64,15 @@ function MobileSubscribers() {
     if(msisdn === '' && service_type === "All" ){
       const filteredData = subOriginalData
       setgetSubs(filteredData)
+      setsarchButtonClicked(true)
+      setsearchResults(filteredData)
       return
   }
 
     // filter data with both number and service type values
     const filteredData = subOriginalData.filter(item => item.service_type === service_type && item.msisdn === msisdn.trim())
     setgetSubs(filteredData)
+    setsarchButtonClicked(true)
     setsearchResults(filteredData)
 
   };
@@ -126,6 +132,7 @@ function MobileSubscribers() {
           getSubs={getSubs}
           loading={loading}
           searchResults={searchResults}
+          sarchButtonClicked={sarchButtonClicked}
           />
       </div>
 
