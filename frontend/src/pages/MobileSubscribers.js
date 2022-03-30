@@ -88,7 +88,7 @@ function MobileSubscribers() {
         <div className="grid md:grid-cols-3 grid-cols-1 gap-4">
           <div>
             <input
-            type="text"
+            type="search"
               value={searchValue}
               placeholder="Search phone number"
               onChange={(e) => setSearchValue(e.target.value)}
